@@ -29,6 +29,9 @@ public class FirstJbdc {
                         System.out.println("new artist added");
                     }
                     break;
+                    case "insert":
+                        manager.InsertArtists();
+                        break;
                     case "all":
                         manager.ShowArtists();
                         break;
@@ -78,10 +81,10 @@ public class FirstJbdc {
                     }
                     break;
                     default:
-                        System.out.println("avaiable commands are: add, all, findbyid, findbyname, delete, update and exit.");
+                        System.out.println("avaiable commands are: insert, add, all, findbyid, findbyname, delete, update and exit.");
                         break;
                 }
-            } catch (Exception ex) {
+            } catch (SQLException ex) {
                 System.out.println("error happened");
                 System.out.println(ex.getMessage());
             }
