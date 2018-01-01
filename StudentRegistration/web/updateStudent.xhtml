@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Delete Student</title>
+        <h:outputStylesheet library="css" name="myStyle.css"/>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h2><h:outputText value="UPDATE STUDENT"/></h2>
+
+            <h:form> 
+
+                <h:panelGrid columns="1" style="margin: 0 auto"> 
+                    <h:outputText value="Student Update"/>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" style="margin: 0 auto"> 
+                    <h:selectOneMenu  id="IdMenu" value="#{studentBean.student.id}" >
+                        <f:selectItems value="#{studentBean.students}" />
+                        
+                        <h:outputLabel for="IdMenu" value="Student Id"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel for="firstName" value="First Name"/>
+                    <h:inputText id="firstName" value='#{studentBean.firstName}' required="true" requiredMessage="Inputing first name is required"/>
+
+                    <h:outputLabel for="lastName" value="Last Name"/>
+                    <h:inputText id="lastName" value='#{studentBean.lastName}'/>
+
+                    <h:outputLabel for="age" value="Age"/>
+                    <h:inputText id="age" value="#{studentBean.age}"/>
+
+                    <h:outputLabel for="subject1" value="Subject 1"/>
+                    <h:inputText id="subject1" value="#{studentBean.subject.subject1}"/>
+
+                    <h:outputLabel for="subject2" value="Subject 2"/>
+                    <h:inputText id="subject2" value="#{studentBean.subject.subject2}"/>
+
+                    <h:outputLabel for="subject3" value="Subject 3"/>
+                    <h:inputText id="subject3" value="#{studentBean.subject.subject3}"/>
+
+                    <h:outputLabel for="subject4" value="Subject 4"/>
+                    <h:inputText id="subject4" value="#{studentBean.subject.subject4}"/>
+
+                    <h:outputLabel for="loc" value="Campus"/>
+
+                    <h:selectOneMenu id="loc" value="#{studentBean.nav.location}">
+                        <f:selectItem itemLabel="Stockholm" itemValue="Stockholm"/>
+                        <f:selectItem itemLabel="Göteborg" itemValue="Göteborg"/>
+
+                    </h:selectOneMenu>
+
+                    <h:panelGroup/>
+                    <h:commandButton value="Update" action="#{studentBean.updateStudent2()}"/>
+
+
+                </h:panelGrid>
+            </h:form>
+
+            <p:dataTable  id="studTable" var="eachstud" value="#{studentBean.students}"  tableStyle="width:auto">
+                <f:facet name="header">
+                    TABLE OF STUDENTS                                
+                </f:facet>
+                <p:column>
+                    <h:outputText value="#{eachstud.id}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.name}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.lastname}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.age}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.location}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.subject1}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.subject2}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.subject3}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{eachstud.subject4}"/>
+                </p:column>
+
+
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
