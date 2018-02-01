@@ -6,7 +6,7 @@ public class Recursion {
 
     
     public static void main(String[] args) {
-        System.out.println(fact(5));
+        System.out.println(fact(7));
     }
     public static long fact (long n){
         if ( n <= 1 ){

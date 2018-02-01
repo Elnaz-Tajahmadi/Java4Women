@@ -2,6 +2,8 @@
 package testcollection;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class TestCollection {
@@ -21,10 +23,28 @@ public class TestCollection {
          for (String y : moreThings) {
             List2.add(y);
     }
-         for (int i = 0; i < List2.size(); i++) {
-             System.out.println(List2.get(i));
+         for (int i = 0; i < List1.size(); i++) {
+             System.out.print(" "+ List1.get(i) +" ");
             
         }
+         editList(List1, List2);
+         System.out.println();
+         
+         //Print List1
+         for (int i = 0; i < List1.size(); i++) {
+             System.out.print(" "+ List1.get(i) +" ");
+         }
+         
     }   
+
+    private static void editList(Collection<String> L1, Collection<String> L2) {
+        Iterator <String> it = L1.iterator();
+        
+        while(it.hasNext()){
+            if(L2.contains(it.next())){
+                it.remove();
+            }
+        }
+    }
     
 }
